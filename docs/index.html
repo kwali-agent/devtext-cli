@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevText CLI — Format JSON, XML, YAML from the command line</title>
+    <meta name="description" content="DevText CLI formats JSON, XML, YAML and strips markdown code blocks. Runs locally, no API needed.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 2px solid #eee;
+        }
+        header h1 {
+            font-size: 3em;
+            color: #e94560;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.3em;
+            color: #666;
+        }
+        .install {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        .install h2 {
+            color: #00f2fe;
+            margin-bottom: 20px;
+        }
+        code {
+            background: #0f3460;
+            color: #00f2fe;
+            padding: 15px 20px;
+            border-radius: 4px;
+            display: block;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 1.1em;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .feature {
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        .feature h3 {
+            color: #e94560;
+            margin-bottom: 10px;
+        }
+        .cta {
+            display: inline-block;
+            background: #e94560;
+            color: #fff;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .cta.secondary {
+            background: transparent;
+            color: #e94560;
+            border: 2px solid #e94560;
+        }
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+        footer a {
+            color: #e94560;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DevText CLI</h1>
+            <p>Format JSON, XML, YAML, and strip markdown code blocks — from the command line</p>
+            <a href="https://github.com/kwali-agent/devtext-cli" class="cta">View on GitHub</a>
+            <a href="#install" class="cta secondary">Install Now</a>
+        </header>
+
+        <div class="install" id="install">
+            <h2>Install</h2>
+            <code>npm install -g devtext-cli</code>
+            <p>Or use npx (no install required):</p>
+            <code>npx devtext-cli --help</code>
+        </div>
+
+        <h2 style="text-align: center; margin-bottom: 30px;">Features</h2>
+        <div class="features">
+            <div class="feature">
+                <h3>JSON</h3>
+                <p>Pretty-print, validate, minify. Works with stdin, files, or piped output.</p>
+                <code>echo '{"key":"value"}' | devtext -f json</code>
+            </div>
+            <div class="feature">
+                <h3>XML</h3>
+                <p>Format and validate XML documents. Perfect for legacy API responses.</p>
+                <code>devtext data.xml -f xml</code>
+            </div>
+            <div class="feature">
+                <h3>YAML</h3>
+                <p>Convert YAML to JSON. Great for Kubernetes configs and CI/CD files.</p>
+                <code>devtext config.yaml -f yaml</code>
+            </div>
+            <div class="feature">
+                <h3>Strip Markdown</h3>
+                <p>Remove code blocks from AI outputs. Works with ChatGPT/Claude responses.</p>
+                <code>echo '```json {"test":1} ```' | devtext -f strip</code>
+            </div>
+        </div>
+
+        <div style="background: #f8f9fa; padding: 40px; border-radius: 8px; margin: 40px 0;">
+            <h2 style="text-align: center;">Why DevText CLI?</h2>
+            <ul style="list-style: none; padding: 0; max-width: 500px; margin: 0 auto;">
+                <li style="margin: 15px 0; padding-left: 30px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #00f2fe;">✓</span>
+                    <strong>Runs locally</strong> — no network calls, no tracking
+                </li>
+                <li style="margin: 15px 0; padding-left: 30px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #00f2fe;">✓</span>
+                    <strong>Works offline</strong> — airplane mode, no problem
+                </li>
+                <li style="margin: 15px 0; padding-left: 30px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #00f2fe;">✓</span>
+                    <strong>Fast</strong> — no API latency, just Node.js
+                </li>
+                <li style="margin: 15px 0; padding-left: 30px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #00f2fe;">✓</span>
+                    <strong>Open source</strong> — MIT licensed, free forever
+                </li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin: 60px 0;">
+            <h2>Need an API instead?</h2>
+            <p style="color: #666; margin-bottom: 20px;">Check out DevText Pro — hosted API with free tier.</p>
+            <a href="https://devtext.pro" class="cta secondary">devtext.pro</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Made by <a href="https://github.com/kwali-agent">@kwali-agent</a> and <a href="https://github.com/fabbio">@fabbio</a></p>
+        <p><a href="https://github.com/kwali-agent/devtext-cli">GitHub</a> · <a href="https://github.com/kwali-agent/devtext-cli/blob/main/README.md">Docs</a> · <a href="https://github.com/kwali-agent/devtext-cli/blob/main/EXAMPLES.md">Examples</a></p>
+    </footer>
+</body>
+</html>
